@@ -63,3 +63,9 @@ Thumbs.db
 images/
 card_lists
 dump/
+
+# test files
+testing.md
+decklist.md
+decklist.html
+testing_scripts.py
