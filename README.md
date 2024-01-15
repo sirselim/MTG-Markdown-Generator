@@ -17,8 +17,8 @@ This script takes a list of Magic: The Gathering card names, queries the Scryfal
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/mtg-scryfall-api-card-list.git
-   cd mtg-scryfall-api-card-list
+   git clone https://github.com/sirselim/MTG-Markdown-Generator.git
+   cd MTG-Markdown-Generator
    ```
 
 2. **Install Dependencies:**

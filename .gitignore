@@ -1,0 +1,65 @@
+# .gitignore
+
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# Local configuration
+.env
+
+# Python bytecode
+*.pyc
+*.pyo
+__pycache__/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE settings
+.idea/
+.vscode/
+
+# Editor temporary files
+*~
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Package files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Distribution / packaging
+.Python
+env/
+bin/
+lib/
+include/
+lib64/
+libs/
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# test directories
+images/
+card_lists
+dump/

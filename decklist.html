@@ -1,0 +1,519 @@
+<!DOCTYPE html><html><head>
+      <title>decklist</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/Miles.Benton/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.11/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="krarks-gambling-problem---commander-deck">Krark's Gambling Problem - Commander Deck </h1>
+<h2 id="commanders">Commander(s) </h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Krark, the Thumbless</th>
+<th style="text-align:center">Kydele, Chosen of Kruphix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://scryfall.com/search?q=%22Krark,+the+Thumbless%22"><img src="./images/magic_card_Krark,_the_Thumbless_497709.jpg" alt="Krark, the Thumbless"></a></td>
+<td style="text-align:center"><a href="https://scryfall.com/search?q=%22Kydele,+Chosen+of+Kruphix%22"><img src="./images/magic_card_Kydele,_Chosen_of_Kruphix_420652.jpg" alt="Kydele, Chosen of Kruphix"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="planeswalkers-1">Planeswalkers (1) </h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Saheeli,+Sublime+Artificer%22"><img src="./images/magic_card_SaheeliSublimeArtificer_935.jpg" alt="Saheeli, Sublime Artificer"></a></td>
+<td><img src="images/place_holder.png" alt=""></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="artifacts-10">Artifacts (10) </h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Arcane+Signet%22"><img src="./images/magic_card_ArcaneSignet_299.jpg" alt="Arcane Signet"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Bonder's+Ornament%22"><img src="./images/magic_card_BondersOrnament_370.jpg" alt="Bonder's Ornament"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Cultivator's+Caravan%22"><img src="./images/magic_card_CultivatorsCaravan_354.jpg" alt="Cultivator's Caravan"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Fountain+of+Ichor%22"><img src="./images/magic_card_FountainofIchor_223.jpg" alt="Fountain of Ichor"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Gruul+Signet%22"><img src="./images/magic_card_GruulSignet_358.jpg" alt="Gruul Signet"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Izzet+Keyrune%22"><img src="./images/magic_card_IzzetKeyrune_230.jpg" alt="Izzet Keyrune"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Krark's+Thumb%22"><img src="./images/magic_card_KrarksThumb_190.jpg" alt="Krark's Thumb"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Simic+Keyrune%22"><img src="./images/magic_card_SimicKeyrune_265.jpg" alt="Simic Keyrune"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Simic+Signet%22"><img src="./images/magic_card_SimicSignet_312.jpg" alt="Simic Signet"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Sol+Ring%22"><img src="./images/magic_card_SolRing_313.jpg" alt="Sol Ring"></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="instants-11">Instants (11) </h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Blazing+Crescendo%22"><img src="./images/magic_card_BlazingCrescendo_123.jpg" alt="Blazing Crescendo"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Fertilid's+Favor%22"><img src="./images/magic_card_FertilidsFavor_186.jpg" alt="Fertilid's Favor"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Monstrous+Rage%22"><img src="./images/magic_card_MonstrousRage_142.jpg" alt="Monstrous Rage"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Otherworldly+Outburst%22"><img src="./images/magic_card_OtherworldlyOutburst_138.jpg" alt="Otherworldly Outburst"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Royal+Treatment%22"><img src="./images/magic_card_RoyalTreatment_183.jpg" alt="Royal Treatment"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Shore+Up%22"><img src="./images/magic_card_ShoreUp_64.jpg" alt="Shore Up"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Snakeskin+Veil%22"><img src="./images/magic_card_SnakeskinVeil_323.jpg" alt="Snakeskin Veil"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Snap%22"><img src="./images/magic_card_Snap_10.jpg" alt="Snap"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Sudden+Breakthrough%22"><img src="./images/magic_card_SuddenBreakthrough_116.jpg" alt="Sudden Breakthrough"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Unsubstantiate%22"><img src="./images/magic_card_Unsubstantiate_82.jpg" alt="Unsubstantiate"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Viridescent+Wisps%22"><img src="./images/magic_card_ViridescentWisps_132.jpg" alt="Viridescent Wisps"></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sorceries-6">Sorceries (6) </h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Become+Brutes%22"><img src="./images/magic_card_BecomeBrutes_317.jpg" alt="Become Brutes"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Curse+of+the+Werefox%22"><img src="./images/magic_card_CurseoftheWerefox_167.jpg" alt="Curse of the Werefox"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Enter+the+Unknown%22"><img src="./images/magic_card_EntertheUnknown_128.jpg" alt="Enter the Unknown"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Involuntary+Employment%22"><img src="./images/magic_card_InvoluntaryEmployment_110.jpg" alt="Involuntary Employment"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Scale+the+Heights%22"><img src="./images/magic_card_ScaletheHeights_202.jpg" alt="Scale the Heights"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Twisted+Fealty%22"><img src="./images/magic_card_TwistedFealty_154.jpg" alt="Twisted Fealty"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="enchantments-5">Enchantments (5) </h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Cryptic+Pursuit%22"><img src="./images/magic_card_Cryptic_Pursuit_70.jpg" alt="Cryptic Pursuit"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Metallurgic+Summonings%22"><img src="./images/magic_card_Metallurgic_Summonings_122.jpg" alt="Metallurgic Summonings"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Season+of+Growth%22"><img src="./images/magic_card_Season_of_Growth_191.jpg" alt="Season of Growth"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Thousand-Year+Storm%22"><img src="./images/magic_card_Thousand-Year_Storm_286.jpg" alt="Thousand-Year Storm"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Vesuvan+Duplimancy%22"><img src="./images/magic_card_Vesuvan_Duplimancy_73.jpg" alt="Vesuvan Duplimancy"></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="creatures-13">Creatures (13) </h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Baral+and+Kari+Zev%22"><img src="./images/magic_card_BaralandKariZev_218.jpg" alt="Baral and Kari Zev"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Harmonic+Prodigy%22"><img src="./images/magic_card_HarmonicProdigy_132.jpg" alt="Harmonic Prodigy"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Ivy,+Gleeful+Spellthief%22"><img src="./images/magic_card_IvyGleefulSpellthief_201.jpg" alt="Ivy, Gleeful Spellthief"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Legolas,+Master+Archer%22"><img src="./images/magic_card_LegolasMasterArcher_173.jpg" alt="Legolas, Master Archer"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Maraleaf+Pixie%22"><img src="./images/magic_card_MaraleafPixie_196.jpg" alt="Maraleaf Pixie"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Ojer+Pakpatiq,+Deepest+Epoch+//+Temple+of+Cyclical+Time%22"><img src="./images/magic_card_OjerPakpatiqDeepestEpochTempleofCyclicalTime_67.jpg" alt="Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Quandrix+Apprentice%22"><img src="./images/magic_card_QuandrixApprentice_216.jpg" alt="Quandrix Apprentice"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Stormchaser+Drake%22"><img src="./images/magic_card_StormchaserDrake_82.jpg" alt="Stormchaser Drake"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Tavern+Scoundrel%22"><img src="./images/magic_card_TavernScoundrel_144.jpg" alt="Tavern Scoundrel"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Tanglespan+Lookout%22"><img src="./images/magic_card_TanglespanLookout_188.jpg" alt="Tanglespan Lookout"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Tenacious+Tomeseeker%22"><img src="./images/magic_card_TenaciousTomeseeker_74.jpg" alt="Tenacious Tomeseeker"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Triton+Fortune+Hunter%22"><img src="./images/magic_card_TritonFortuneHunter_69.jpg" alt="Triton Fortune Hunter"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Zada,+Hedron+Grinder%22"><img src="./images/magic_card_ZadaHedronGrinder_268.jpg" alt="Zada, Hedron Grinder"></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lands">Lands </h2>
+<h3 id="basic-lands">basic lands </h3>
+<table>
+<thead>
+<tr>
+<th>10x</th>
+<th>8x</th>
+<th>8x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Island%22"><img src="./images/magic_card_Island_639672.jpg" alt="Island"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Mountain%22"><img src="./images/magic_card_Mountain_639676.jpg" alt="Mountain"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Forest%22"><img src="./images/magic_card_Forest_639678.jpg" alt="Forest"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-lands">other lands </h3>
+<p>[in deck]</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Fungal+Reaches%22"><img src="./images/magic_card_Fungal_Reaches_509644.jpg" alt="./images/magic_card_Fungal_Reaches_509644.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Reliquary+Tower%22"><img src="./images/magic_card_Reliquary_Tower_640644.jpg" alt="./images/magic_card_Reliquary_Tower_640644.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Restless+Ridgeline%22"><img src="./images/magic_card_Restless_Ridgeline_637008.jpg" alt="./images/magic_card_Restless_Ridgeline_637008.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Restless+Spire%22"><img src="./images/magic_card_Restless_Spire_629761.jpg" alt="./images/magic_card_Restless_Spire_629761.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Terramorphic+Expanse%22"><img src="./images/magic_card_Terramorphic_Expanse_640656.jpg" alt="./images/magic_card_Terramorphic_Expanse_640656.jpg"></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="upgrade-options">[upgrade options] </h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Command+Tower%22"><img src="./images/magic_card_Command_Tower_640621.jpg" alt="./images/magic_card_Command_Tower_640621.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Crystal+Grotto%22"><img src="./images/magic_card_Crystal_Grotto_629755.jpg" alt="./images/magic_card_Crystal_Grotto_629755.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Evolving+Wilds%22"><img src="./images/magic_card_Evolving_Wilds_640624.jpg" alt="./images/magic_card_Evolving_Wilds_640624.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Plaza+of+Heroes%22"><img src="./images/magic_card_Plaza_of_Heroes_574732.jpg" alt="./images/magic_card_Plaza_of_Heroes_574732.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Reflecting+Pool%22"><img src="./images/magic_card_Reflecting_Pool_563241.jpg" alt="./images/magic_card_Reflecting_Pool_563241.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Temple+of+the+False+God%22"><img src="./images/magic_card_Temple_of_the_False_God_640655.jpg" alt="./images/magic_card_Temple_of_the_False_God_640655.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Cinder+Glade%22"><img src="./images/magic_card_Cinder_Glade_640619.jpg" alt="./images/magic_card_Cinder_Glade_640619.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Grove+of+the+Burnwillows%22"><img src="./images/magic_card_Grove_of_the_Burnwillows_438804.jpg" alt="./images/magic_card_Grove_of_the_Burnwillows_438804.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Ketria+Triome%22"><img src="./images/magic_card_Ketria_Triome_479770.jpg" alt="./images/magic_card_Ketria_Triome_479770.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Molten+Tributary%22"><img src="./images/magic_card_Molten_Tributary_574731.jpg" alt="./images/magic_card_Molten_Tributary_574731.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Restless+Spire%22"><img src="./images/magic_card_Restless_Spire_629761.jpg" alt="./images/magic_card_Restless_Spire_629761.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Rugged+Highlands%22"><img src="./images/magic_card_Rugged_Highlands_607342.jpg" alt="./images/magic_card_Rugged_Highlands_607342.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Sheltered+Thicket%22"><img src="./images/magic_card_Sheltered_Thicket_625437.jpg" alt="./images/magic_card_Sheltered_Thicket_625437.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Spire+Garden%22"><img src="./images/magic_card_Spire_Garden_563244.jpg" alt="./images/magic_card_Spire_Garden_563244.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Tangled+Islet%22"><img src="./images/magic_card_Tangled_Islet_574738.jpg" alt="./images/magic_card_Tangled_Islet_574738.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Wooded+Ridgeline%22"><img src="./images/magic_card_Wooded_Ridgeline_574740.jpg" alt="./images/magic_card_Wooded_Ridgeline_574740.jpg"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Yavimaya+Coast%22"><img src="./images/magic_card_Yavimaya_Coast_574741.jpg" alt="./images/magic_card_Yavimaya_Coast_574741.jpg"></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="upgrades">upgrades </h2>
+<h3 id="done">done </h3>
+<ul>
+<li><code>Crimson Wisps</code> replaces <code>Ancestral Anger</code></li>
+<li><code>Cerulean Wisps</code> replaces <code>Enter the Unkown</code></li>
+<li><code>Krark's thumb</code> replaces <code>Foutain of Ichor</code></li>
+</ul>
+<h3 id="not-done">not done </h3>
+<ul>
+<li><code>Veyran, Voice of Duality</code> replaces <code>Prizefight</code></li>
+<li><code>Deekah, Fractal Theorist</code> replaces <code>Tomb of Horrors Adventurer</code></li>
+<li><code>Song of Creation</code> replaces <code>Quandrix Apprentice</code></li>
+<li><code>Birgi, God of Storytelling</code> replaces <code>Simic Keyrune</code></li>
+</ul>
+<h3 id="need-i-some-how-missed-these">need (I some how missed these): </h3>
+<p><code>Ancestral Anger</code> - can be replaced/upgrade by <code>Crimson Wisps</code></p>
+<p><code>Prizefight</code> could use (from collection):</p>
+<ul>
+<li><code>Tail Swipe</code></li>
+<li><code>Ents Fury</code></li>
+</ul>
+<hr>
+<h2 id="have-these-cards-on-hand">Have these cards on hand: </h2>
+<h4 id="in-collection---53">(in collection - 53) </h4>
+<ul>
+<li>Arcane Signet</li>
+<li>Baral and Kari Zev</li>
+<li>Become Brutes</li>
+<li>Blazing Crescendo</li>
+<li>Bonder's Ornament</li>
+<li>Cryptic Pursuit</li>
+<li>Cultivator's Caravan</li>
+<li>Curse of the Werefox</li>
+<li>Enter the Unknown</li>
+<li>Fountain of Ichor</li>
+<li>Fungal Reaches</li>
+<li>Fertilid's Favor</li>
+<li>Gruul Signet</li>
+<li>Harmonic Prodigy</li>
+<li>Involuntary Employment</li>
+<li>Ivy, Gleeful Spellthief</li>
+<li>Izzet Keyrune</li>
+<li>Krark, the Thumbless</li>
+<li>Krark's Thumb</li>
+<li>Kydele, Chosen of Kruphix</li>
+<li>Legolas, Master Archer</li>
+<li>Maraleaf Pixie</li>
+<li>Metallurgic Summonings</li>
+<li>Monstrous Rage</li>
+<li>Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time</li>
+<li>Otherworldly Outburst</li>
+<li>Quandrix Apprentice</li>
+<li>Reliquary Tower</li>
+<li>Restless Ridgeline</li>
+<li>Restless Spire</li>
+<li>Royal Treatment</li>
+<li>Saheeli, Sublime Artificer</li>
+<li>Scale the Heights</li>
+<li>Season of Growth</li>
+<li>Shore Up</li>
+<li>Simic Keyrune</li>
+<li>Simic Signet</li>
+<li>Snakeskin Veil</li>
+<li>Snap</li>
+<li>Sol Ring</li>
+<li>Stormchaser Drake</li>
+<li>Sudden Breakthrough</li>
+<li>Tanglespan Lookout</li>
+<li>Tavern Scoundrel</li>
+<li>Tenacious Tomeseeker</li>
+<li>Terramorphic Expanse</li>
+<li>Thousand-Year Storm</li>
+<li>Triton Fortune Hunter</li>
+<li>Twisted Fealty</li>
+<li>Unsubstantiate</li>
+<li>Vesuvan Duplimancy</li>
+<li>Viridescent Wisps</li>
+<li>Zada, Hedron Grinder</li>
+</ul>
+<hr>
+<h2 id="still-to-come">Still to come: </h2>
+<h3 id="coming-magic-at-willis---19">(coming: Magic at Willis - 19) </h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Battlefield+Thaumaturge%22"><img src="./images/magic_card_BattlefieldThaumaturge_31.jpg" alt="Battlefield Thaumaturge"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Cackling+Counterpart%22"><img src="./images/magic_card_CacklingCounterpart_32.jpg" alt="Cackling Counterpart"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Errant,+Street+Artist%22"><img src="./images/magic_card_ErrantStreetArtist_41.jpg" alt="Errant, Street Artist"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Eureka+Moment%22"><img src="./images/magic_card_EurekaMoment_184.jpg" alt="Eureka Moment"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Frantic+Search%22"><img src="./images/magic_card_FranticSearch_96.jpg" alt="Frantic Search"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Izzet+Signet%22"><img src="./images/magic_card_IzzetSignet_306.jpg" alt="Izzet Signet"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Mindsplice+Apparatus%22"><img src="./images/magic_card_MindspliceApparatus_63.jpg" alt="Mindsplice Apparatus"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Mossfire+Valley%22"><img src="./images/magic_card_MossfireValley_414.jpg" alt="Mossfire Valley"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Ovika,+Enigma+Goliath%22"><img src="./images/magic_card_OvikaEnigmaGoliath_213.jpg" alt="Ovika, Enigma Goliath"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Rashmi,+Eternities+Crafter%22"><img src="./images/magic_card_RashmiEternitiesCrafter_229.jpg" alt="Rashmi, Eternities Crafter"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Storm-Kiln+Artist%22"><img src="./images/magic_card_Storm-KilnArtist_260.jpg" alt="Storm-Kiln Artist"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Talrand,+Sky+Summoner%22"><img src="./images/magic_card_TalrandSkySummoner_124.jpg" alt="Talrand, Sky Summoner"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Temple+of+Abandon%22"><img src="./images/magic_card_TempleofAbandon_430.jpg" alt="Temple of Abandon"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Temple+of+Epiphany%22"><img src="./images/magic_card_TempleofEpiphany_1042.jpg" alt="Temple of Epiphany"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Temple+of+Mystery%22"><img src="./images/magic_card_TempleofMystery_357.jpg" alt="Temple of Mystery"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Tomb+of+Horrors+Adventurer%22"><img src="./images/magic_card_TombofHorrorsAdventurer_100.jpg" alt="Tomb of Horrors Adventurer"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Wandering+Fumarole%22"><img src="./images/magic_card_WanderingFumarole_928.jpg" alt="Wandering Fumarole"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Wort,+the+Raidmother%22"><img src="./images/magic_card_WorttheRaidmother_234.jpg" alt="Wort, the Raidmother"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Young+Pyromancer%22"><img src="./images/magic_card_YoungPyromancer_131.jpg" alt="Young Pyromancer"></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Battlefield Thaumaturge<br>
+Cackling Counterpart<br>
+Errant, Street Artist<br>
+Eureka Moment<br>
+Frantic Search<br>
+Izzet Signet<br>
+Mindsplice Apparatus<br>
+Mossfire Valley<br>
+Ovika, Enigma Goliath<br>
+Rashmi, Eternities Crafter<br>
+Storm-Kiln Artist<br>
+Talrand, Sky Summoner<br>
+Temple of Abandon<br>
+Temple of Epiphany<br>
+Temple of Mystery<br>
+Tomb of Horrors Adventurer<br>
+Wandering Fumarole<br>
+Wort, the Raidmother<br>
+Young Pyromancer</p>
+<h3 id="coming-iron-knight---20">(coming: Iron Knight - 20) </h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Gruul+Keyrune%22"><img src="./images/magic_card_GruulKeyrune_230.jpg" alt="Gruul Keyrune"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Ral,+Storm+Conduit%22"><img src="./images/magic_card_RalStormConduit_211.jpg" alt="Ral, Storm Conduit"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Crimson+Wisps%22"><img src="./images/magic_card_CrimsonWisps_88.jpg" alt="Crimson Wisps"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Cerulean+Wisps%22"><img src="./images/magic_card_CeruleanWisps_31.jpg" alt="Cerulean Wisps"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Flooded+Grove%22"><img src="./images/magic_card_FloodedGrove_402.jpg" alt="Flooded Grove"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Frontier+Bivouac%22"><img src="./images/magic_card_FrontierBivouac_997.jpg" alt="Frontier Bivouac"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Hinterland+Harbor%22"><img src="./images/magic_card_HinterlandHarbor_336.jpg" alt="Hinterland Harbor"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Karplusan+Forest%22"><img src="./images/magic_card_KarplusanForest_250.jpg" alt="Karplusan Forest"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Restless+Vinestalk%22"><img src="./images/magic_card_RestlessVinestalk_261.jpg" alt="Restless Vinestalk"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Sulfur+Falls%22"><img src="./images/magic_card_SulfurFalls_354.jpg" alt="Sulfur Falls"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Waterlogged+Grove%22"><img src="./images/magic_card_WaterloggedGrove_249.jpg" alt="Waterlogged Grove"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Izzet+Keyrune%22"><img src="./images/magic_card_IzzetKeyrune_230.jpg" alt="Izzet Keyrune"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Simic+Keyrune%22"><img src="./images/magic_card_SimicKeyrune_265.jpg" alt="Simic Keyrune"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Azorius+Keyrune%22"><img src="./images/magic_card_AzoriusKeyrune_209.jpg" alt="Azorius Keyrune"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Azorius+Keyrune%22"><img src="./images/magic_card_AzoriusKeyrune_209.jpg" alt="Azorius Keyrune"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Boros+Keyrune%22"><img src="./images/magic_card_BorosKeyrune_227.jpg" alt="Boros Keyrune"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Dimir+Keyrune%22"><img src="./images/magic_card_DimirKeyrune_856.jpg" alt="Dimir Keyrune"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Golgari+Keyrune%22"><img src="./images/magic_card_GolgariKeyrune_229.jpg" alt="Golgari Keyrune"></a></td>
+</tr>
+<tr>
+<td><a href="https://scryfall.com/search?q=%22Orzhov+Keyrune%22"><img src="./images/magic_card_OrzhovKeyrune_233.jpg" alt="Orzhov Keyrune"></a></td>
+<td><a href="https://scryfall.com/search?q=%22Rakdos+Keyrune%22"><img src="./images/magic_card_RakdosKeyrune_232.jpg" alt="Rakdos Keyrune"></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="for-deck---2">[for deck - 2] </h4>
+<p>Gruul Keyrune<br>
+Ral, Storm Conduit</p>
+<h4 id="extrasupgrades---18">[extras/upgrades - 18] </h4>
+<p>[for deck]</p>
+<p>Crimson Wisps<br>
+Cerulean Wisps<br>
+Flooded Grove<br>
+Frontier Bivouac<br>
+Hinterland Harbor<br>
+Karplusan Forest<br>
+Restless Vinestalk<br>
+Sulfur Falls<br>
+Waterlogged Grove</p>
+<p>[others]</p>
+<p>Izzet Keyrune [double]<br>
+Simic Keyrune [double]<br>
+Azorius Keyrune<br>
+Azorius Keyrune<br>
+Boros Keyrune<br>
+Dimir Keyrune<br>
+Golgari Keyrune<br>
+Orzhov Keyrune<br>
+Rakdos Keyrune</p>
+<hr>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
