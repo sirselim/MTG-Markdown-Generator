@@ -65,6 +65,7 @@ card_lists
 dump/
 
 # test files
+test.md
 testing.md
 decklist.md
 decklist.html
