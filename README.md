@@ -71,8 +71,8 @@ This example generates a decklist from my_deck.txt, sorting cards by type, inclu
 
 ## Acknowledgments
 
-- The script uses the Scryfall API for retrieving card data.
-- tqdm is used for progress bars in concurrent processing.
+- The script uses the [Scryfall API](https://scryfall.com/) for retrieving card data.
+- `tqdm` is used for progress bars in concurrent processing.
 
 ## License
 
