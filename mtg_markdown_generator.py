@@ -4,7 +4,6 @@ import sys
 import requests
 import concurrent.futures
 import re
-from urllib.parse import urlencode
 from tqdm import tqdm
 import time
 
@@ -22,10 +21,10 @@ def find_card_by_name(card_name):
         return data  # Return the direct result
 
     print(f"Failed to find card '{card_name}'. Status Code: {response.status_code}")
-    
+
     # Print the API response for debugging
     print(response.text)
-    
+
     return None
 
 def download_image(image_url, filename):
@@ -44,17 +43,40 @@ def download_image(image_url, filename):
 
 def get_scryfall_url(card_name):
     # Construct the Scryfall card URL with quotes around the search term
-    return f"https://scryfall.com/search?q=\"{card_name.replace(' ', '+')}\""
+    return f"https://scryfall.com/search?q=\"{'+'.join(card_name.split())}\""
 
-def generate_markdown_table(card_list):
+def generate_markdown_table(card_type_tables, desired_order=None, commanders=None):
+    markdown_table = "# Decklist\n\n"
+
+    if commanders and "commander" in card_type_tables:
+        commander_data_list = card_type_tables["commander"]
+        markdown_table += "## List of Commander(s)\n\n"
+        markdown_table += generate_markdown_table_for_type(commander_data_list)
+
+    if desired_order:
+        for card_type in desired_order:
+            if card_type in card_type_tables and card_type != "commander":
+                card_data_list = card_type_tables[card_type]
+                markdown_table += f"\n## List of {card_type.capitalize()} cards ({len(card_data_list)})\n\n"
+                markdown_table += generate_markdown_table_for_type(card_data_list)
+
+    # Include tables for card types not in the desired order list
+    for card_type, card_data_list in card_type_tables.items():
+        if card_type not in desired_order and card_type != "commander":
+            markdown_table += f"\n## List of {card_type.capitalize()} cards ({len(card_data_list)})\n\n"
+            markdown_table += generate_markdown_table_for_type(card_data_list)
+
+    return markdown_table
+
+def generate_markdown_table_for_type(card_data_list):
     # Sort the card list alphabetically by card name
-    card_list.sort(key=lambda x: x[0])
+    card_data_list.sort(key=lambda x: x[0])
 
     markdown_table = "|   |   |   |\n"
     markdown_table += "|---|---|---|\n"
 
-    for i in range(0, len(card_list), 3):
-        row = card_list[i:i + 3]
+    for i in range(0, len(card_data_list), 3):
+        row = card_data_list[i:i + 3]
 
         markdown_table += "|"
 
@@ -75,7 +97,7 @@ def generate_markdown_table(card_list):
                 if image_url:
                     images_folder = "./images"
                     os.makedirs(images_folder, exist_ok=True)
-                    
+
                     # Remove special characters from the filename
                     filename = re.sub(r'[^\w.-]', '', card_name)
                     filename = os.path.join(images_folder, f"magic_card_{filename}_{collector_number}.jpg")
@@ -101,27 +123,63 @@ def process_batch(batch):
 
     return batch_results
 
-def generate_card_type_tables(card_data_list):
+def generate_card_type_tables(card_data_list, commanders=None):    
     card_type_tables = {}  # Dictionary to store tables for each card type
+    commander_cards = {commander.lower() for commander in commanders} if commanders is not None else set()
 
     for card_name, set_code, collector_number, card_data in card_data_list:
         type_line = card_data.get("type_line", "")
         simplified_type = re.split(r'\s*[-—]\s*', type_line, 1)[0].lower()  # Extract the part before the first hyphen or em dash
 
-        card_type_tables.setdefault(simplified_type, []).append((card_name, set_code, collector_number, card_data))
+        if card_name.lower() in commander_cards or "commander" in simplified_type:
+            # If the card is a commander or has "commander" in its type, add it to the commander table only
+            card_type_tables.setdefault("commander", []).append((card_name, set_code, collector_number, card_data))
+            commander_cards.add(card_name.lower())  # Add the commander card to the set
+        else:
+            # Exclude commander cards from other tables
+            card_type_tables.setdefault(simplified_type, []).append((card_name, set_code, collector_number, card_data))
 
     return card_type_tables
 
-def print_card_type_tables(card_type_tables):
-    for simplified_type, card_data_list in card_type_tables.items():
-        print(f"\n## List of {' '.join(part.capitalize() for part in simplified_type.split('—')[0].strip().split())} cards ({len(card_data_list)})\n")
-        markdown_table = generate_markdown_table(card_data_list)
-        print(markdown_table)
+def print_card_type_tables(card_type_tables, desired_order, commanders):
+    # Print tables for commanders
+    if commanders:
+        commander_data_list = [(commander, "", "", find_card_by_name(commander)) for commander in commanders]
+        print("\n## List of Commander(s)\n")
+        commander_table = generate_markdown_table(commander_data_list)
+        print(commander_table)
+
+    # Print initial header
+    print("# Decklist\n")
+
+    # Print tables in the desired order
+    for card_type in desired_order:
+        if card_type in card_type_tables:
+            card_data_list = card_type_tables[card_type]
+            # Exclude commanders from other tables
+            card_data_list = [card_data for card_data in card_data_list if card_data[0] not in commanders]
+            print(f"\n## List of {' '.join(part.capitalize() for part in card_type.split('—')[0].strip().split())} cards ({len(card_data_list)})\n")
+            markdown_table = generate_markdown_table(card_data_list)
+            print(markdown_table)
+
+    # Print tables for card types not in the desired order list
+    for card_type, card_data_list in card_type_tables.items():
+        if card_type not in desired_order and card_type != "commander":
+            # Exclude commanders from other tables
+            card_data_list = [card_data for card_data in card_data_list if card_data[0] not in commanders]
+            print(f"\n## List of {' '.join(part.capitalize() for part in card_type.split('—')[0].strip().split())} cards ({len(card_data_list)})\n")
+            markdown_table = generate_markdown_table(card_data_list)
+            print(markdown_table)
+
+def write_markdown_to_file(markdown_content):
+    with open("decklist.md", "w") as file:
+        file.write(markdown_content)
+    print("Markdown tables have been written to 'decklist.md'.")
 
 def main():
-    global verbose_output  # Declare global variable
+    global verbose_output, commanders  # Declare global variable
     if len(sys.argv) < 2:
-        print("Usage: ./scryfall_api_list_input.py <path_to_text_file> [--sort-by-type] [--verbose]")
+        print("Usage: ./scryfall_api_list_input.py <path_to_text_file> [--sort-by-type] [--verbose] [--commander <commander_name(s)>] [--markdown]")
         return
 
     file_path = sys.argv[1]
@@ -131,7 +189,12 @@ def main():
         return
 
     sort_by_type = "--sort-by-type" in sys.argv
+    markdown_output = "--markdown" in sys.argv
     verbose_output = "--verbose" in sys.argv  # Set verbose_output based on command-line argument
+
+    commanders = [commander.lower() for commander in sys.argv[sys.argv.index("--commander") + 1:]] if "--commander" in sys.argv else []
+    # debugging
+    print("Commander(s):", commanders)
 
     with open(file_path, 'r') as file:
         card_names = [line.strip() for line in file]
@@ -155,11 +218,27 @@ def main():
             # Introduce a delay between batches (e.g., 75 milliseconds)
             time.sleep(0.075)
 
+    # Define the desired order of card types
+    desired_order = [
+        "legendary planeswalker",
+        "legendary creature",
+        "creature",
+        "instant",
+        "sorcery",
+        "artifact",
+        "enchantment",
+        "land"
+    ]
+
     if sort_by_type:
-        card_type_tables = generate_card_type_tables(card_data_list)
-        print_card_type_tables(card_type_tables)
+        card_type_tables = generate_card_type_tables(card_data_list, commanders)
+        markdown_table = generate_markdown_table(card_type_tables, desired_order, commanders)
     else:
-        markdown_table = generate_markdown_table(card_data_list)
+        markdown_table = generate_markdown_table(card_data_list, commanders)
+
+    if markdown_output:
+        write_markdown_to_file(markdown_table)
+    else:
         print("\nMarkdown Table:\n")
         print(markdown_table)
 
